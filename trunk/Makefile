@@ -20,12 +20,13 @@
  #
 
 
+DISPLAYFLAG := -classic-display
 
-all:
-	ocamlbuild wikicreole.cma
+all: 
+	ocamlbuild -ocamlc 'ocamlfind ocamlc -nojoin' wikicreole.cma
 
 install:
-	ocamlfind install aws META _build/shared/aws_shared.cma _build/shared/aws_shared.cmi _build/simpledb/aws_simpledb.cma _build/simpledb/aws_simpledb.cmi _build/ec2/aws_ec2.cma _build/ec2/aws_ec2.cmi
+	ocamlfind install wikicreole META _build/wikicreole.cma _build/wikicreole.cmi
 
 remove: 
 	ocamlfind remove wikicreole
@@ -33,3 +34,5 @@ remove:
 clean:
 	ocamlbuild -clean
 
+test: 
+	ocamlbuild test.byte

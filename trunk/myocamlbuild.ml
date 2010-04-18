@@ -81,8 +81,9 @@ let _ = dispatch begin function
        flag ["ocaml"; "pkg_threads"; "compile"] (S[A "-thread"]);
        flag ["ocaml"; "pkg_threads"; "link"] (S[A "-thread"]);
        flag ["ocaml"; "pkg_threads"; "infer_interface"] (S[A "-thread"]) ;
+       Pathname.define_context "ec2" ["shared"; "ec2"]; 
+       Pathname.define_context "simpledb" ["shared"; "simpledb"]; 
        
-
 
        
    | _ -> ()

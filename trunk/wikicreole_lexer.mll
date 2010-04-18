@@ -685,8 +685,8 @@ and parse_rem c =
       parse_rem c lexbuf
     }
   | _ {
-     Ocsigen_messages.warning 
-       ("Wikicreole: Unrecognized char "^(Lexing.lexeme lexbuf)^".");
+     (* Ocsigen_messages.warning 
+       ("Wikicreole: Unrecognized char "^(Lexing.lexeme lexbuf)^"."); *)
      raise Unrecognized_char
   }
   | eof {
@@ -895,9 +895,9 @@ and parse_extension_content_wiki start lev nowiki beg c =
           parse_extension_content_wiki start lev nowiki (beg^s) c lexbuf
         }
       | _ {
-          Ocsigen_messages.warning
+          (* Ocsigen_messages.warning
             ("Wikicreole: Unrecognized char in extension: "^
-               (Lexing.lexeme lexbuf)^".");
+               (Lexing.lexeme lexbuf)^"."); *)
           raise Unrecognized_char
         }
 
@@ -919,9 +919,9 @@ and parse_extension_content_nowiki start unquote beg c =
           parse_extension_content_nowiki start unquote (beg^s) c lexbuf
         }
       | _ {
-          Ocsigen_messages.warning
+          (* Ocsigen_messages.warning
             ("Wikicreole: Unrecognized char in extension "^
-               (Lexing.lexeme lexbuf)^".");
+               (Lexing.lexeme lexbuf)^"."); *)
           raise Unrecognized_char
         }
 
