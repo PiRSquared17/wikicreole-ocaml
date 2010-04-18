@@ -7,7 +7,7 @@ open Misc
 
 open Aws_shared.Types
 
-let load connection domain page = 
+let load connection domain page right = 
   Aws_simpledb.Command.GetAttributes.exec connection domain page  >>> Aws_shared.Result.get_attribute "contents"
 
 let save connection domain page = 
