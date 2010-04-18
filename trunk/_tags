@@ -1,5 +1,4 @@
 "nis_chkpwd" : include
 <myocamlfind.*> : use_unix
-<*.ml*> : pkg_aws, pkg_threads, pkg_ocsigen
-<*.byte> :pkg_aws, pkg_threads, pkg_wikicreole
+<*.ml*> :  pkg_threads, pkg_ocsigen
 
