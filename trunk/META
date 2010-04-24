@@ -1,0 +1,5 @@
+name="Wikicreole"
+version="0.0.1"
+description="Simple wiki engine"
+requires="ocsigen"
+archive(byte) = "wiki.cma"

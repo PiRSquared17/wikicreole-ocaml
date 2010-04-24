@@ -1,9 +1,3 @@
-(*
- * Simple wiki interface
- *
- * hacked from Ocsimore
- *)
-
 open Lwt 
 
 open Wiki_types 
@@ -43,7 +37,7 @@ object
 end
 
 
-let display sp source =
+let display sp =
 
   let bi = 
     { 
@@ -57,5 +51,5 @@ let display sp source =
       bi_menu_style = `Linear ; 
     } in 
 
-    Wiki_syntax.std_of_wiki bi source
+    Wiki_syntax.std_of_wiki bi "== test ==" 
 
