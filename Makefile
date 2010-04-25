@@ -23,23 +23,20 @@ default: all
 
 DISPLAYFLAG := -classic-display
 
-MYOCAMLFIND := _build/myocamlfind.byte
 OCAMLBUILD := ocamlbuild
+OCAMLFIND := ocamlfind 
 
-$(MYOCAMLFIND): myocamlfind.ml
-	$(OCAMLBUILD) -no-plugin $(subst _build/,,$@)
-
-all: $(MYOCAMLFIND) 
+all: 
 	$(OCAMLBUILD) wiki.cma
 
-test: $(MYOCAMLFIND)
+test: 
 	$(OCAMLBUILD) test.byte 
 
 install:
-	$(MYOCAMLFIND) install wikicreole META _build/wiki.cma _build/wiki.cmi
+	$(OCAMLFIND) install wikicreole META _build/wiki.cma _build/wiki.cmi
 
 remove: 
-	$(MYOCAMLFIND) remove wikicreole
+	$(OCAMLFIND) remove wikicreole
 
 clean: 
 	$(OCAMLBUILD) -clean 
