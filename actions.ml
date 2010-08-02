@@ -8,7 +8,7 @@
 open XHTML.M
 
 open Lwt 
-open Wikicreole
+open Lexer
   
 let (>>>) f g = g f 
 
@@ -176,7 +176,7 @@ let list_builder = function
       let f (
 	n, 
 	children_option,
-	(attribs: Wikicreole.attribs)) = 
+	(attribs: Lexer.attribs)) = 
 
 	let atts = parse_common_attribs attribs in
 	  element n >>= fun node -> 
@@ -194,7 +194,7 @@ let descr_builder = function
       let f (
 	istitle, 
 	d, 
-	(attribs: Wikicreole.attribs)) = 
+	(attribs: Lexer.attribs)) = 
 	let atts = parse_common_attribs attribs in
 	  element d >>= fun d ->
 	    if istitle 
@@ -347,14 +347,14 @@ type actions =
      | `Var
      ]
        XHTML.M.elt Lwt.t, 
-     unit)  Wikicreole.builder
+     unit)  Lexer.builder
       
 let actions : actions = 
   
   let plugin_action = (fun _ _ _ _ _ _ -> ()) and link_action = (fun _ _ _ _ _ -> ()) in
     
     {
-      Wikicreole.chars = make_string;
+      Lexer.chars = make_string;
       strong_elem = strong_elem; 
       em_elem = em_elem ;
       a_elem = a_elem ;
@@ -392,7 +392,7 @@ let actions : actions =
       plugin =
 	(fun name ->
            let wiki_content = false in
-             (wiki_content, (fun _ _ _ -> Wikicreole.A_content (span [] >>> return))));
+             (wiki_content, (fun _ _ _ -> Lexer.A_content (span [] >>> return))));
 
       plugin_action = plugin_action;
       link_action = link_action;
@@ -400,5 +400,5 @@ let actions : actions =
     } 
 
 let display  source =
-  Wikicreole.from_string () actions source >>= element 
+  Lexer.from_string () actions source >>= element 
     
