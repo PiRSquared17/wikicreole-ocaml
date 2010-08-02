@@ -266,7 +266,7 @@ type actions =
       | `H5
       | `H6
       | `Hr
-      
+      | `Div 
       | `Ol
       | `P
       | `Pre
