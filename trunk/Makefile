@@ -27,13 +27,13 @@ OCAMLBUILD := ocamlbuild
 OCAMLFIND := ocamlfind 
 
 all: 
-	$(OCAMLBUILD) wiki.cma
+	$(OCAMLBUILD) wikicreole.cma
 
 test: 
 	$(OCAMLBUILD) test.byte 
 
 install:
-	$(OCAMLFIND) install wikicreole META _build/wiki.cma _build/wiki.cmi
+	$(OCAMLFIND) install wikicreole META _build/wikicreole.cma _build/wikicreole.cmi
 
 remove: 
 	$(OCAMLFIND) remove wikicreole
