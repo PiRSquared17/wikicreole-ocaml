@@ -1,0 +1,1 @@
+Here is a simple wiki engine, extracted from [Ocsimore](http://ocsigen.org/ocsimore/), the CMS by the [Ocsigen](http://www.ocsigen.org) team.
